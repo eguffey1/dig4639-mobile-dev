@@ -14,3 +14,6 @@ I am looking for a position in Front End Design with a focus on interactivity th
 - Item 1 [Google](http://www.google.com)
 - Item 2
 - Item 3
+
+## Conflicts
+This section represents code on the server that isn't on the local repository
