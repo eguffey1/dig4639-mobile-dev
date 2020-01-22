@@ -1,0 +1,11 @@
+Needs the current setting
+	Event Listener button submission
+		Change font color
+			Change font color to white for dark mode/dim
+			Change color to black for default
+		Change bg color
+			Bg color default: white
+			Bg color dim: blue/grey
+			Bg color dark: black
+
+Result is purely a visual change that affects readability on mobile phone
