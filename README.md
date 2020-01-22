@@ -9,3 +9,6 @@ Erickson Guffey <br>
 LinkedIn: https://www.linkedin.com/in/erickson-guffey/ <br>
 Portfolio: https://students.cah.ucf.edu/~er481704/ <br>
 I am looking for a position in Front End Design with a focus on interactivity through JavaScript and other Front End Libraries
+
+## Conflicts
+This section represents code on the server that isn't on the local repository
