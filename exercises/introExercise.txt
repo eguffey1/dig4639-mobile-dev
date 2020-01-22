@@ -1,3 +1,5 @@
+Twitter Theme Settings
+
 Needs the current setting
 	Event Listener button submission
 		Change font color
@@ -9,3 +11,5 @@ Needs the current setting
 			Bg color dark: black
 
 Result is purely a visual change that affects readability on mobile phone
+
+Contributors: eguffey1, leidyp96, NathanS97
