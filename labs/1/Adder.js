@@ -3,8 +3,7 @@ class Adder {
         this.props = props;
     }
     sum() {
-            let c = (this.props.a + this.props.b);
-            return c;
+            return (this.props.a + this.props.b);
     }
     render() {
         console.log(`The sum of ${this.props.a} and ${this.props.b} is ${this.sum()}`)
