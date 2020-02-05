@@ -1,0 +1,63 @@
+
+body{
+    
+}
+
+.task {
+    background: rgb(187, 185, 185);
+    max-width: 50%;
+}
+.addTask {
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:8px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+.addTask:hover {
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
+}
+.addTask:active {
+	position:relative;
+	top:1px;
+}
+h2 {
+    padding: 0px;
+    margin: 0px;
+}
+input {
+  
+    padding: 8px 10px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-radius: 3px;
+  }
+
+@media only screen and (max-width: 500px) {
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 32px;
+    }
+    .task{
+        max-width: 100%;
+    }
+   .addTaskPane .taskText{
+       margin:0px 30px 0px;
+   }
+   .newTask{
+     padding: 8px;
+     padding-left: 16px;
+   }
+  
+  }

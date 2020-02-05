@@ -16,10 +16,15 @@ class Task {
         this.element.className = "task";
     }
     onClick(e) {
+         
+        if(e.target.checked) {
+            this.elem.setAttribute("style", "text-decoration: line-through;");
+        }
         console.log(this);
         console.log(e.target);
         console.log(e.target.checked);
     }
+
     render() {
         return this.element;
     }
