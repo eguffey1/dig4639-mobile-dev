@@ -3,6 +3,9 @@ import { Sum } from './sum.js'
 test('adds 1 + 2 to equal 3', () => {
   expect(Sum(1, 2)).toBe(3)
 })
+it("produces the sum of 10 and 20 which should be 30", () => {
+  expect(Sum(10,20)).toBe(30)
+})
 
 // ICE 
 
