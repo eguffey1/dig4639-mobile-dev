@@ -1,0 +1,20 @@
+{
+  "cardArr": [
+    {
+      "title": "First Card",
+      "content": "This is the First Card"
+    },
+    {
+      "title": "Second Card",
+      "content": "This is the Second Card"
+    },
+    {
+      "title": "Third Card",
+      "content": "This is the Third Card"
+    },
+    {
+      "title": "Fourth Card",
+      "content": "This is the Fourth Card"
+    }
+  ]
+}
