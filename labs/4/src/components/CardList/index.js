@@ -6,12 +6,10 @@ class CardList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardArr: Data.cardArr.map((value, content) => {
-        value.id = content;
-        return value;
-      })
+      cardArr: Data.cardArr
+      }
     }
-  }
+  
 
   closeBox(id) {
     let cardArr = this.state.cardArr.filter((value) => value.id !== id);
