@@ -1,0 +1,87 @@
+[
+  {
+    "question1": "What is your quest?",
+    "answers" :
+    [
+      {"text": "To rid myself of COVID-19",
+      "correct": false
+      },
+      {
+        "text": "To find the holy grail",
+        "correct": true
+      },
+      {
+        "text": "I don't know",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question2": "What is your favorite color?",
+    "answers": [
+      {
+        "text": "Blue",
+        "correct": true
+      },
+      {
+        "text": "Red",
+        "correct": true
+      },
+      {
+        "text": "A different color",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "question3": "What is the air-speed velocity of an unlaiden swallow?",
+    "answers": [
+      {
+        "text": "It depends on the day",
+        "correct": false
+      },
+      {
+        "text": "What do you mean? An African or European swallow?",
+        "correct": true
+      },
+      {
+        "text": "Huh? I-- I don't know that. Auuuuuuuugh!",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "question4": "What is your name?",
+    "answers": [
+      {
+        "text": "Sir Galahad of Camelot",
+        "correct": true
+      },
+      {
+        "text": "Dr. Murray",
+        "correct": true
+      },
+      {
+        "text": "Not one of these",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question5": "How are you coping in these times?",
+    "answers": [
+      {
+        "text": "Pretty good, stuff is easy over the internet",
+        "correct": true
+      },
+      {
+        "text": "Nothing is really going on, IDK what you mean...",
+        "correct": false
+      },
+      {
+        "text": "I'm definitely not coping RN",
+        "correct": true
+      }
+    ]
+  }
+]
