@@ -1,10 +1,11 @@
 [
   {
-    "question1": "What is your quest?",
+    "question": "What is your quest?",
     "answers" :
     [
-      {"text": "To rid myself of COVID-19",
-      "correct": false
+      {
+        "text": "To rid myself of COVID-19",
+        "correct": false
       },
       {
         "text": "To find the holy grail",
@@ -17,7 +18,7 @@
     ]
   },
   {
-    "question2": "What is your favorite color?",
+    "question": "What is your favorite color?",
     "answers": [
       {
         "text": "Blue",
@@ -34,7 +35,7 @@
     ]
   },
   {
-    "question3": "What is the air-speed velocity of an unlaiden swallow?",
+    "question": "What is the air-speed velocity of an unlaiden swallow?",
     "answers": [
       {
         "text": "It depends on the day",
@@ -51,7 +52,7 @@
     ]
   },
   {
-    "question4": "What is your name?",
+    "question": "What is your name?",
     "answers": [
       {
         "text": "Sir Galahad of Camelot",
@@ -68,7 +69,7 @@
     ]
   },
   {
-    "question5": "How are you coping in these times?",
+    "question": "How are you coping in these times?",
     "answers": [
       {
         "text": "Pretty good, stuff is easy over the internet",
