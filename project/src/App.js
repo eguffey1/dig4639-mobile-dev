@@ -10,8 +10,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
-    window.fetch("http://plato.mrl.ai:8080/contacts", {headers: {API: "murray"}})
+    const proxy = "https://cors-anywhere.herokuapp.com/"
+    window.fetch(proxy + "http://plato.mrl.ai:8080/contacts/add", {headers: {API: "guffey", method: "POST"}})
     .then((res) => res.json())
     .then((data) => {
       this.setState({contacts: data.contacts});
@@ -24,7 +24,7 @@ class App extends React.Component {
       <div>
        {
          this.state.contacts.map((value, index) => {
-           return <p key={index}>{value.name}</p>;
+           return <p key={index}>{value.name} {value.number}</p>;
          })
        }
       </div>
