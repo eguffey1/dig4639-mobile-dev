@@ -1,6 +1,7 @@
 import React from 'react';
 import List from './components/List/List.js'
 import Delete from './components/Delete/Delete.js'
+import Profile from './components/Profile/Profile.js'
 
 class App extends React.Component {
 
@@ -40,8 +41,8 @@ class App extends React.Component {
 
   render() {
   return (
-  <div>
     <div>
+      <h2>Contacts App</h2>
       <form onSubmit={this.addContact}>
         <fieldset>
           <legend>New Contact</legend>
@@ -52,9 +53,9 @@ class App extends React.Component {
         </fieldset>
       </form>
       <Delete />
+      <Profile />
       <List />
     </div>
-  </div>
 
     );
   }
