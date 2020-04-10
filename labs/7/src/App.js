@@ -1,5 +1,6 @@
 import React from 'react';
 import List from './components/List/List.js'
+import Delete from './components/Delete/Delete.js'
 
 class App extends React.Component {
 
@@ -50,6 +51,7 @@ class App extends React.Component {
           <button type="submit">Add</button>
         </fieldset>
       </form>
+      <Delete />
       <List />
     </div>
   </div>

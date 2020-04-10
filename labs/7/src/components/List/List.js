@@ -21,9 +21,11 @@ class List extends React.Component {
   render() {
     return (
       <div>
+        <h4>Your List of Contacts:</h4>
+        <hr />
        {
          this.state.contacts.map((value, index) => {
-           return <p key={index}>{value.name} {value.number}</p>;
+           return <p key={index}>{index + 1}. <u>Name:</u> {value.name}<br />&nbsp;&nbsp;&nbsp;<u>Phone #:</u> {value.number}</p>;
          })
        }
       </div>
