@@ -1,4 +1,5 @@
 import React from 'react';
+import List from './components/List/List.js'
 
 class App extends React.Component {
 
@@ -29,16 +30,7 @@ class App extends React.Component {
 				});
 			});
 	}
-  
-/*   componentDidMount() {
 
-    window.fetch("http://plato.mrl.ai:8080/contacts", {headers: {API: "murray"}})
-    .then((res) => res.json())
-    .then((data) => {
-      this.setState({contacts: data.contacts});
-    });
-    
-  }; */
 
   addContact = (event) => {
     event.preventDefault();
@@ -58,6 +50,7 @@ class App extends React.Component {
           <button type="submit">Add</button>
         </fieldset>
       </form>
+      <List />
     </div>
   </div>
 
