@@ -1,62 +1,104 @@
 import React from 'react';
-import List from './components/List/List.js'
-import Delete from './components/Delete/Delete.js'
-import Profile from './components/Profile/Profile.js'
+import "./App.css"
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {contacts: []};
-
+    this.state = {
+      profile: {},
+      contacts: []
+    };
   }
 
-  add() {
-    const proxy = "https://cors-anywhere.herokuapp.com/"
-		fetch(proxy + 'http://plato.mrl.ai:8080/contacts/add', {
+  componentDidMount() {
+    this.fetchProfile();
+    this.fetchUsers();
+  }
+
+  add = (event) => {
+    event.preventDefault();
+		fetch('http://plato.mrl.ai:8080/contacts/add', {
 			method: 'POST',
 			body: JSON.stringify({
 				name: this.refs.firstName.value + ' ' + this.refs.lastName.value,
 				number: this.refs.phoneNum.value
 			}),
-			headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        API: "guffey"
-			}
-		}).then(response => {
-				return response.json()
-			}).then(json => {
-				this.setState({
-					contacts:json
-				});
+			headers: { "Content-type": "application/json", API: "guffey" }
+  })
+
+  .then(res => { return res.json() })
+  .then((data) => {
+      this.fetchProfile();
+      this.fetchUsers();
 			});
-	}
-
-
-  addContact = (event) => {
-    event.preventDefault();
-    this.add();
+  }
+  
+  delete = (index) => {
+    fetch('http://plato.mrl.ai:8080/contacts/remove', {
+      method: 'POST',
+      body: JSON.stringify({ position: index }),
+      headers: { "Content-type": "application/json", API: "guffey" }
+    })
+    .then(res => {  return res.json() }) 
+    .then((data) => {
+      this.fetchProfile();
+      this.fetchUsers();
+    });
+  }
+  
+  fetchProfile() {
+    window.fetch("http://plato.mrl.ai:8080/profile", { 
+      headers: { API: "guffey" } 
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({ profile: data });
+    });
+  }
+  fetchUsers() {
+    window.fetch("http://plato.mrl.ai:8080/contacts", { 
+      headers: { API: "guffey" } 
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({ contacts: data.contacts });
+    });
   }
 
   render() {
   return (
     <div>
-      <h2>Contacts App</h2>
-      <form onSubmit={this.addContact}>
+      <h2 className="header">Contacts App</h2>
+      <form onSubmit={this.add}>
         <fieldset>
-          <legend>New Contact</legend>
-          <input ref="firstName" type='text' placeholder='First Name'/>
-          <input ref="lastName" type='text' placeholder='Last Name'/>
-          <input ref="phoneNum" type='text' placeholder='Phone Number'/>
-          <button type="submit">Add</button>
+          <legend className="legend"><strong>New Contact</strong></legend>
+          <input ref="firstName" type='text' placeholder='First Name' className="inputBox"/>
+          <input ref="lastName" type='text' placeholder='Last Name' className="inputBox"/>
+          <input ref="phoneNum" type='text' placeholder='Phone Number' className="inputBox"/>
+          <button type="submit" className="myButton">Add</button>
         </fieldset>
       </form>
-      <Delete />
-      <Profile />
-      <List />
+      <div>
+        <hr />
+        <h3>Current User:</h3>
+        <p><strong>Name:</strong> {this.state.profile.name} <br />
+        <strong>Total Entries:</strong> {this.state.profile.count}</p>
+        <hr />
+      </div>
+      <div>
+        <h3>Your List of Contacts:</h3>
+        <div>
+       {
+         this.state.contacts.map((value, index) => {
+           return <p className="pBody" key={index}>{index + 1}. <u>Name:</u> {value.name}<br />
+           &nbsp;&nbsp;&nbsp;<u>Phone #:</u> {value.number}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" 
+           onClick={() => this.delete(index)} className="myButton2" id={index}>Delete</button></p>;
+         })
+       }
+       </div>
+      </div>
     </div>
-
     );
   }
 }

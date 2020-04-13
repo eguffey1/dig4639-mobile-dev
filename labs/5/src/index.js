@@ -1,20 +1,22 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-let nameSearch = ''; //change your search query here
 
-class Card extends React.Component { //class component Card
+export default class App extends React.Component { //class component Card
+	constructor() {
+		super()
 	
-	state = { 
+	this.state = { 
 		data: [], //holds REST data for map
-		loading: false
 	}
+}
 	
-	componentDidMount() {
-		this.setState({loading: true})
+	search = () => {
+		let nameSearch = document.querySelector('#Search').value;
+		console.log(nameSearch) //change your search query here
 		fetch(`https://rickandmortyapi.com/api/character/?name=${nameSearch}`) //REST fetch, queries by name
 			.then(data => data.json()) //parse to JSON
-			.then(data => this.setState({data: data.results, loading: false})) //store results into data array, turn off loading
+			.then(data => this.setState({data: data.results})) //store results into data array, turn off loading
 	}
 
 	render() {
@@ -23,6 +25,7 @@ class Card extends React.Component { //class component Card
 				{this.state.loading //if loading show 'loading...' else render query
 					? "loading..."
 					: <div>
+						<input ref="search" type="text" placeholder="Enter Name Here" id="Search" onKeyUp={this.search}/>
 						{this.state.data.map(char => {
 							return (
 								<div key={char.id}>

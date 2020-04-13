@@ -1,35 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+import ListContacts from './ListContacts'
+import CreateContact from './CreateContact'
+import * as ContactsAPI from './utils/ContactsAPI'
 
-class App extends React.Component {
+class App extends Component {
+  state = {
+    contacts: []
+  }
+  componentDidMount() {
+    ContactsAPI.getAll().then((contacts) => {
+      this.setState({ contacts })
+    })
+  }
+  removeContact = (contact) => {
+    this.setState((state) => ({
+      contacts: state.contacts.filter((c) => c.id !== contact.id)
+    }))
 
-  constructor(props) {
-    super(props);
-
-    this.state = {contacts: []};
-
+    ContactsAPI.remove(contact)
   }
 
-  componentDidMount() {
-    const proxy = "https://cors-anywhere.herokuapp.com/"
-    window.fetch(proxy + "http://plato.mrl.ai:8080/contacts/add", {headers: {API: "guffey", method: "POST"}})
-    .then((res) => res.json())
-    .then((data) => {
-      this.setState({contacts: data.contacts});
-    });
-
+  createContact(contact) {
+    ContactsAPI.create(contact).then(contact => {
+      this.setState(state => ({
+        contacts: state.contacts.concat([ contact ])
+      }))
+    })
   }
 
   render() {
     return (
       <div>
-       {
-         this.state.contacts.map((value, index) => {
-           return <p key={index}>{value.name} {value.number}</p>;
-         })
-       }
+        <Route exact path='/contacts' render={() => (
+          <ListContacts
+            onDeleteContact={this.removeContact}
+            contacts={this.state.contacts}
+          />
+        )}/>
+        <Route path='/create' render={({ history }) => (
+          <CreateContact
+            onCreateContact={(contact) => {
+              this.createContact(contact)
+              history.push('/')
+            }}
+          />
+        )}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
