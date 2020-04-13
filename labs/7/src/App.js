@@ -20,15 +20,12 @@ class App extends React.Component {
     event.preventDefault();
 		fetch('http://plato.mrl.ai:8080/contacts/add', {
 			method: 'POST',
-			body: JSON.stringify({
-				name: this.refs.firstName.value + ' ' + this.refs.lastName.value,
-				number: this.refs.phoneNum.value
-			}),
+			body: JSON.stringify({ name: this.refs.firstName.value + ' ' + this.refs.lastName.value,
+			number: this.refs.phoneNum.value }),
 			headers: { "Content-type": "application/json", API: "guffey" }
-  })
-
-  .then(res => { return res.json() })
-  .then((data) => {
+    })
+    .then(res => { return res.json() })
+    .then(() => {
       this.fetchProfile();
       this.fetchUsers();
 			});
@@ -41,7 +38,7 @@ class App extends React.Component {
       headers: { "Content-type": "application/json", API: "guffey" }
     })
     .then(res => {  return res.json() }) 
-    .then((data) => {
+    .then(() => {
       this.fetchProfile();
       this.fetchUsers();
     });
