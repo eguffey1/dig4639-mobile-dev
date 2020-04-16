@@ -19,7 +19,7 @@ class App extends React.Component {
 
   add = (event) => {
     event.preventDefault();
-		fetch('https://plato.mrl.ai:8080/contacts/add', {
+		fetch('http://plato.mrl.ai:8080/contacts/add', {
 			method: 'POST',
 			body: JSON.stringify({ 
         name: this.refs.firstName.value + ' ' + this.refs.lastName.value,
@@ -34,7 +34,7 @@ class App extends React.Component {
   }
   
   delete = (index) => {
-    fetch('https://plato.mrl.ai:8080/contacts/remove', {
+    fetch('http://plato.mrl.ai:8080/contacts/remove', {
       method: 'POST',
       body: JSON.stringify({ position: index }),
       headers: { "Content-type": "application/json", API: "guffey" }
@@ -47,7 +47,7 @@ class App extends React.Component {
   }
   
   fetchProfile() {
-    window.fetch("https://plato.mrl.ai:8080/profile", { 
+    window.fetch("http://plato.mrl.ai:8080/profile", { 
       headers: { API: "guffey" } 
     })
     .then((res) => res.json())
@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 
   fetchUsers() {
-    window.fetch("https://plato.mrl.ai:8080/contacts", { 
+    window.fetch("http://plato.mrl.ai:8080/contacts", { 
       headers: { API: "guffey" } 
     })
     .then((res) => res.json())
